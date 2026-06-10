@@ -38,10 +38,14 @@ Our platform acts as **the unified testbed for next-generation protocol design**
 ### Minimum Capabilities (V1 Current Release)
 *   **Trilemma Tradeoff Analyzer**: Comparative live charts analyzing Scalability, Security, Decentralization, Cost, and Developer Friction across ETH, SOL, TON, and BTC.
 *   **Live Interactive Conflict Simulator**: Step-by-step visual modeling of network processes (Mempool allocation -> Proposer sorting -> Node finality) comparing standard operations with guarded environments.
+*   **Atomic Intent Solver Visualizer**: Visual simulation modeling of modern off-chain intent auctions, gas abstraction paymasters, and on-chain lock escrows (ERC-7683 standard).
 *   **On-Demand Local Blueprint Fallbacks**: Instantly renders highly secure blueprints (e.g. `MevShieldRouter.sol` or `aura_priority_gateway.rs`) complete with dynamic state guards, so learning never halts.
 
 ### Maximum Capabilities (Operational Production Ceiling)
 *   **Express Sandbox Proxies API**: Fully integrates server-side Gemini 3.5 capabilities to ingest complex custom criteria (e.g. "Create a zero-knowledge shared sequencer layout for Layer-2 EVMs") and generate fully-audited, downloadable protocol repositories.
+*   **Atomic Solver Code Emission**: Compiles highly complete, production-grade programs:
+    *   `ERC7683IntentManager.sol` featuring signature verification and gasless sponsored paymaster operations.
+    *   `solana_intent_recipient.rs` (Anchor framework) with dynamic fee-payer seed controls and execution security assertions.
 *   **Automatic Assertions and Safety Modifiers**: Generates logic that explicitly guards against:
     *   Flashloan reentrancy attacks (`nonReentrant` state blocks)
     *   Slippage-sandwich exploits (strict deadline constraints and balance assertions)
@@ -64,6 +68,7 @@ Built on a robust full-stack (Client-Server) framework to ensure client-side API
 │   ├── /components/
 │   │   ├── /EcosystemInsights.tsx    # Comparative network trilemmas and code Blueprints
 │   │   ├── /TransactionSimulator.tsx # Live Visual Conflict Sandbox
+│   │   ├── /IntentEngine.tsx         # Cross-Chain Gasless Solver Visual State Machine
 │   │   └── /ArchitectAI.tsx          # Real-time Interactive Code & Security Compiler
 │   └── /main.tsx            # React lifecycle instantiator
 ```

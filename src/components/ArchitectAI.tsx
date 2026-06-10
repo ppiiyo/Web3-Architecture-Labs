@@ -90,13 +90,13 @@ export default function ArchitectAI() {
   };
 
   return (
-    <div className="bg-slate-900/60 border border-slate-800/80 rounded-xl p-6 space-y-6" id="architect-container">
-      <div>
-        <h3 className="text-lg font-bold text-slate-100 flex items-center gap-2">
-          <Sparkles className="w-5 h-5 text-indigo-400 animate-pulse" />
+    <div className="glass-card-premium border border-slate-800/85 rounded-2xl p-6.5 space-y-6 shadow-3d-lg" id="architect-container">
+      <div className="border-b border-slate-900 pb-5">
+        <h3 className="text-lg font-bold text-slate-100 font-display flex items-center gap-2">
+          <Sparkles className="w-5 h-5 text-indigo-400 animate-pulse glow-indigo" />
           Web3 Protocol AI Architect Box
         </h3>
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-slate-400 mt-1 font-medium">
           State your requirements. The AI will design a production-quality dApp, middleware, or rollup, writing complete, audited, safe code.
         </p>
       </div>
@@ -105,23 +105,23 @@ export default function ArchitectAI() {
         {/* Left Form Panel */}
         <form onSubmit={generateArchitectOutput} className="lg:col-span-4 space-y-5" id="architect-form">
           {/* Presets shortcut */}
-          <div className="space-y-2">
-            <label className="text-xs font-bold text-slate-400 uppercase tracking-wide">
+          <div className="space-y-3">
+            <label className="text-[10px] font-bold text-slate-405 font-display uppercase tracking-widest block">
               Quick Research Presets
             </label>
-            <div className="grid grid-cols-1 gap-2">
+            <div className="grid grid-cols-1 gap-2.5">
               {presets.map((preset, idx) => (
                 <button
                   type="button"
                   key={idx}
                   onClick={() => applyPreset(preset)}
-                  className="w-full text-left p-2.5 rounded-lg bg-slate-950 border border-slate-850 hover:border-slate-700 hover:bg-slate-900 text-xs text-slate-300 transition-all cursor-pointer"
+                  className="w-full text-left p-3 rounded-xl bg-slate-950/80 border border-slate-900 hover:border-slate-800 hover:bg-[#0c1630]/20 text-xs text-slate-300 transition-all cursor-pointer active:translate-y-[0.5px] shadow-3d-sm"
                 >
-                  <p className="font-bold flex items-center gap-1.5 text-slate-200">
-                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                  <p className="font-bold flex items-center gap-2 text-slate-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-indigo-500 glow-indigo" />
                     {preset.blockchain} • {preset.problem}
                   </p>
-                  <p className="text-[10px] text-slate-500 mt-1 truncate">
+                  <p className="text-[10px] text-slate-500 mt-1.5 truncate">
                     {preset.description}
                   </p>
                 </button>
@@ -132,36 +132,36 @@ export default function ArchitectAI() {
           {/* Blockchain & Problems inputs */}
           <div className="space-y-4 pt-1">
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-400 uppercase">Target blockchain</label>
+              <label className="text-[10px] font-bold text-slate-405 font-display uppercase tracking-wide">Target blockchain</label>
               <input
                 type="text"
                 value={blockchain}
                 onChange={(e) => setBlockchain(e.target.value)}
-                className="w-full p-2.5 bg-slate-950 border border-slate-850 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full p-3 bg-slate-950 border border-slate-900 rounded-xl text-xs text-slate-200 focus:outline-none focus:border-indigo-500/40 transition-colors font-sans font-medium"
                 placeholder="e.g. Solana, Near, Arbitrum..."
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-400 uppercase">Bottleneck Classification</label>
+              <label className="text-[10px] font-bold text-slate-405 font-display uppercase tracking-wide">Bottleneck Classification</label>
               <input
                 type="text"
                 value={problemCode}
                 onChange={(e) => setProblemCode(e.target.value)}
-                className="w-full p-2.5 bg-slate-950 border border-slate-850 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors"
+                className="w-full p-3 bg-slate-950 border border-slate-900 rounded-xl text-xs text-slate-200 focus:outline-none focus:border-indigo-500/40 transition-colors font-sans font-medium"
                 placeholder="e.g. Liquidity Fragmentation, MEV sandwich, async loops"
                 required
               />
             </div>
 
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-400 uppercase">Custom Architectural Directives</label>
+              <label className="text-[10px] font-bold text-slate-405 font-display uppercase tracking-wide">Custom Architectural Directives</label>
               <textarea
                 value={customDescription}
                 onChange={(e) => setCustomDescription(e.target.value)}
                 rows={4}
-                className="w-full p-2.5 bg-slate-950 border border-slate-850 rounded-lg text-xs text-slate-200 focus:outline-none focus:border-indigo-500 transition-colors resize-none leading-relaxed"
+                className="w-full p-3 bg-slate-950 border border-slate-900 rounded-xl text-xs text-slate-200 focus:outline-none focus:border-indigo-500/40 transition-colors resize-none leading-relaxed font-sans font-medium"
                 placeholder="Specify exact protocol components, e.g. 'Write a Solidity smart contract that uses chainlink price feeds and dynamic fee scaling depending on historical volatility logs'"
                 required
               />
@@ -171,16 +171,16 @@ export default function ArchitectAI() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-2.5 bg-indigo-600 hover:bg-indigo-500 disabled:bg-slate-800 disabled:text-slate-500 text-white rounded-lg text-xs font-bold tracking-wider uppercase transition-all shadow shadow-indigo-950 flex items-center justify-center gap-1.5 cursor-pointer"
+            className="w-full py-3 bg-gradient-to-b from-indigo-500 to-indigo-700 hover:from-indigo-400 hover:to-indigo-600 active:translate-y-[1px] disabled:bg-slate-900 disabled:text-slate-500 text-white rounded-xl text-xs font-bold tracking-wider uppercase transition-all shadow-3d-sm flex items-center justify-center gap-2 cursor-pointer select-none"
           >
-            <Sparkles className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 text-indigo-100" />
             {isLoading ? "Assembling Blueprint..." : "Compile Solution Blueprint"}
           </button>
 
           {errorDetails && (
-            <div className="p-3 bg-indigo-950/20 border border-indigo-900/45 rounded-lg text-[10px] text-slate-400 leading-relaxed font-mono space-y-1">
-              <div className="flex items-center gap-1.5 text-indigo-400 font-bold">
-                <Info className="w-3.5 h-3.5" />
+            <div className="p-3 bg-indigo-950/20 border border-indigo-900/30 rounded-xl text-[10px] text-slate-400 leading-relaxed font-mono space-y-1.5">
+              <div className="flex items-center gap-1.5 text-indigo-405 font-bold">
+                <Info className="w-3.5 h-3.5 text-indigo-400" />
                 Sandbox Integration Notice
               </div>
               <p>
@@ -193,22 +193,24 @@ export default function ArchitectAI() {
         {/* Right Output Panel */}
         <div className="lg:col-span-8 space-y-6" id="architect-result-container">
           {isLoading && (
-            <div className="bg-slate-950 border border-slate-850 rounded-xl p-8 flex flex-col items-center justify-center text-center space-y-4 min-h-[400px]">
-              <div className="w-12 h-12 rounded-full border-2 border-indigo-500/10 border-t-indigo-500 animate-spin" />
-              <div className="space-y-1">
-                <p className="text-xs font-mono text-indigo-400 animate-pulse">MODEL: gemini-3.5-flash</p>
-                <p className="text-sm font-semibold text-slate-300">Evaluating consensus limits & state-transition patterns...</p>
-                <p className="text-xs text-slate-500 max-w-sm">Generating production code logic, audits, and mathematical invariants.</p>
+            <div className="bg-[#030611] border border-slate-900 rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-4 min-h-[400px] shadow-3d-inner">
+              <div className="w-12 h-12 rounded-full border-2 border-indigo-500/10 border-t-indigo-500 animate-spin glow-indigo" />
+              <div className="space-y-1.5">
+                <p className="text-[10px] font-mono text-indigo-400 animate-pulse font-bold uppercase tracking-widest">MODEL: gemini-2.5-flash-thinking-exp</p>
+                <p className="text-sm font-semibold text-slate-200">Evaluating consensus limits & state-transition patterns...</p>
+                <p className="text-xs text-slate-500 max-w-sm font-medium leading-relaxed">Generating production code logic, security audits, and mathematical invariants.</p>
               </div>
             </div>
           )}
 
           {!isLoading && !architectResult && (
-            <div className="bg-slate-950/20 border border-slate-850 border-dashed rounded-xl p-8 flex flex-col items-center justify-center text-center space-y-4 min-h-[400px]">
-              <FileCode className="w-12 h-12 text-slate-700" />
+            <div className="bg-[#030611]/30 border border-slate-900 border-dashed rounded-2xl p-8 flex flex-col items-center justify-center text-center space-y-4 min-h-[400px] shadow-3d-inner">
+              <div className="p-4 bg-[#030611] rounded-2xl border border-slate-905">
+                <FileCode className="w-10 h-10 text-slate-500" />
+              </div>
               <div className="space-y-1">
-                <h4 className="text-sm font-bold text-slate-400">Blueprint Empty</h4>
-                <p className="text-xs text-slate-500 max-w-xs">
+                <h4 className="text-sm font-bold text-slate-400 font-display">Workspace Console Empty</h4>
+                <p className="text-xs text-slate-500 max-w-xs leading-relaxed">
                   Fill in your custom specifications or click on a quick preset on the left, then click compile to generate deep on-chain code structures.
                 </p>
               </div>
@@ -216,114 +218,115 @@ export default function ArchitectAI() {
           )}
 
           {!isLoading && architectResult && (
-            <div className="space-y-6" id="architect-output">
+            <div className="space-y-5.5 animate-fadeIn" id="architect-output">
               {/* Solution Overview */}
-              <div className="bg-slate-950 border border-slate-850 rounded-xl p-5 space-y-3">
-                <div className="flex items-center justify-between border-b border-slate-900 pb-3">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest bg-indigo-500/10 px-2 py-0.5 rounded border border-indigo-500/20">
+              <div className="glass-card-premium border border-slate-800/85 rounded-2xl p-5.5 space-y-3.5">
+                <div className="flex items-center justify-between border-b border-slate-905 pb-3">
+                  <div className="space-y-1.5">
+                    <span className="text-[9px] font-mono font-bold text-indigo-400 uppercase tracking-widest bg-indigo-500/10 px-2.5 py-0.5 rounded border border-indigo-500/20 block w-max">
                       Revolutionary Solution Active
                     </span>
-                    <h4 className="text-lg font-bold text-slate-100 mt-1">
+                    <h4 className="text-lg font-bold font-display text-white mt-1">
                       {architectResult.proposedSolutionName}
                     </h4>
                   </div>
-                  <span className="text-xs font-mono text-slate-400 bg-slate-900 px-2 py-1 rounded">
+                  <span className="text-[10px] font-mono font-bold text-slate-400 bg-slate-950 px-2.5 py-1 rounded border border-slate-900 select-all">
                     Blockchain: {architectResult.blockchain}
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mt-3">
-                  <div className="p-3 bg-slate-900/45 border border-slate-850 rounded-xl space-y-1">
-                    <span className="font-bold text-slate-400 flex items-center gap-1">
-                      <AlertTriangle className="w-3.5 h-3.5 text-rose-400" /> Detected Structural Bottleneck
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs mt-3.5">
+                  <div className="p-4 bg-slate-950/80 border border-slate-900 rounded-xl space-y-2 shadow-3d-inner">
+                    <span className="font-bold text-slate-400 flex items-center gap-1.5 uppercase text-[9px] tracking-wider border-b border-slate-900 pb-1 w-max">
+                      <AlertTriangle className="w-3.5 h-3.5 text-rose-455" /> Detected Bottleneck
                     </span>
-                    <p className="text-slate-300 leading-relaxed font-semibold mt-0.5">{architectResult.bottleneckName}</p>
-                    <p className="text-slate-400 text-xs mt-1 leading-relaxed">{architectResult.technicalFailureAnalysis}</p>
+                    <p className="text-slate-200 leading-relaxed font-bold font-sans">{architectResult.bottleneckName}</p>
+                    <p className="text-slate-400 text-xs mt-1 leading-relaxed font-medium font-sans">{architectResult.technicalFailureAnalysis}</p>
                   </div>
                   
-                  <div className="p-3 bg-indigo-950/20 border border-indigo-900/40 rounded-xl space-y-1">
-                    <span className="font-bold text-indigo-300 flex items-center gap-1">
-                      <Cpu className="w-3.5 h-3.5" /> Innovation Proposition
+                  <div className="p-4 bg-[#0c1630]/30 border border-indigo-500/10 rounded-xl space-y-2 shadow-3d-inner">
+                    <span className="font-bold text-indigo-400 flex items-center gap-1.5 uppercase text-[9px] tracking-wider border-b border-indigo-500/10 pb-1 w-max">
+                      <Cpu className="w-3.5 h-3.5" /> Innovation Paradigm
                     </span>
-                    <p className="text-slate-300 leading-relaxed">{architectResult.proposedSolutionSummary}</p>
+                    <p className="text-indigo-200 font-bold font-sans mt-0.5">{architectResult.proposedSolutionName}</p>
+                    <p className="text-slate-350 text-xs leading-relaxed mt-1 font-medium font-sans">{architectResult.proposedSolutionSummary}</p>
                   </div>
                 </div>
               </div>
 
               {/* Step Process list */}
-              <div className="bg-slate-950/40 border border-slate-850 rounded-xl p-5 space-y-3">
-                <h5 className="text-xs uppercase tracking-widest text-slate-400 font-bold">Transaction State transition Flow</h5>
-                <ol className="divide-y divide-slate-850/50" id="tx-flow-ol">
+              <div className="bg-[#030611] border border-slate-900 rounded-2xl p-5.5 space-y-3.5">
+                <h5 className="text-[10.5px] uppercase tracking-widest text-slate-400 font-bold font-display">Transaction State transition Flow</h5>
+                <ol className="divide-y divide-slate-900" id="tx-flow-ol">
                   {architectResult.architecturalBreakdown.map((stepStr, idx) => (
-                    <li key={idx} className="py-2.5 first:pt-0 last:pb-0 font-mono text-xs text-slate-300 flex items-start gap-3">
-                      <span className="text-indigo-400 font-bold shrink-0">{idx + 1}.</span>
-                      <p className="leading-relaxed">{stepStr}</p>
+                    <li key={idx} className="py-3 first:pt-0 last:pb-0 font-mono text-xs text-slate-300 flex items-start gap-4">
+                      <span className="text-indigo-400 font-black shrink-0">{String(idx + 1).padStart(2, "0")}</span>
+                      <p className="leading-relaxed font-medium">{stepStr}</p>
                     </li>
                   ))}
                 </ol>
               </div>
 
               {/* Code Panel */}
-              <div className="border border-slate-800 rounded-xl overflow-hidden bg-slate-950" id="output-engine-panel">
-                <div className="flex items-center justify-between px-4 py-2.5 bg-slate-900 border-b border-slate-800">
-                  <span className="text-xs font-mono text-slate-300 flex items-center gap-2">
-                    <Terminal className="w-3.5 h-3.5 text-slate-400" />
+              <div className="border border-slate-800/80 rounded-2xl overflow-hidden bg-[#030611] shadow-3d-md" id="output-engine-panel">
+                <div className="flex items-center justify-between px-4.5 py-3 bg-[#0d1324] border-b border-slate-800/80">
+                  <span className="text-xs font-mono text-slate-305 flex items-center gap-2">
+                    <Terminal className="w-3.5 h-3.5 text-indigo-400" />
                     {architectResult.engineCodeTitle}
                   </span>
                   
                   <div className="flex items-center gap-3">
-                    <span className="text-[10px] font-mono uppercase bg-slate-800 px-2 py-0.5 rounded text-slate-400">
+                    <span className="text-[9px] font-mono font-bold uppercase bg-slate-950 px-2.5 py-0.5 rounded border border-slate-850 text-slate-400">
                       {architectResult.engineCodeLanguage}
                     </span>
                     <button
                       type="button"
                       onClick={() => handleCopyCode(architectResult.engineCodeContent)}
-                      className="text-xs font-semibold text-slate-400 hover:text-slate-100 flex items-center gap-1 transition-colors cursor-pointer"
+                      className="text-xs font-bold text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer select-none"
                     >
                       {copiedCode ? (
                         <>
                           <Check className="w-3.5 h-3.5 text-emerald-400" />
-                          <span className="text-[10px] font-mono text-emerald-400">Copied!</span>
+                          <span className="text-[10px] font-mono text-emerald-400 uppercase tracking-wider">Copied!</span>
                         </>
                       ) : (
                         <>
                           <Copy className="w-3.5 h-3.5" />
-                          <span className="text-[10px] font-mono">Copy</span>
+                          <span className="text-[10px] font-mono uppercase tracking-wider">Copy</span>
                         </>
                       )}
                     </button>
                     <button
                       type="button"
                       onClick={() => handleDownloadCode(architectResult.engineCodeContent, architectResult.engineCodeTitle)}
-                      className="text-xs font-semibold text-slate-400 hover:text-slate-100 flex items-center gap-1 transition-colors cursor-pointer"
+                      className="text-xs font-bold text-slate-400 hover:text-white flex items-center gap-1.5 transition-colors cursor-pointer select-none"
                     >
                       <Download className="w-3.5 h-3.5" />
-                      <span className="text-[10px] font-mono">Download</span>
+                      <span className="text-[10px] font-mono uppercase tracking-wider">Download</span>
                     </button>
                   </div>
                 </div>
                 <div className="relative">
-                  <pre className="p-4 text-slate-300 font-mono text-xs overflow-x-auto max-h-[420px] leading-relaxed select-all">
+                  <pre className="p-4.5 text-slate-300 font-mono text-[11px] overflow-x-auto max-h-[420px] leading-relaxed select-all">
                     <code>{architectResult.engineCodeContent}</code>
                   </pre>
-                  <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-slate-950 to-transparent pointer-events-none" />
+                  <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-[#030611] to-transparent pointer-events-none" />
                 </div>
               </div>
 
               {/* Audit Checklist */}
-              <div className="bg-slate-950 border border-slate-850 rounded-xl p-5 space-y-3">
-                <h5 className="text-xs font-bold uppercase tracking-widest text-rose-400 flex items-center gap-1.5">
-                  <ShieldAlert className="w-4 h-4 text-rose-400" /> Security Audit Checklist (Defensive Measures)
+              <div className="bg-[#030611] border border-slate-905 rounded-2xl p-5.5 space-y-4">
+                <h5 className="text-[10px] font-bold uppercase tracking-widest text-rose-400 flex items-center gap-1.5 font-display border-b border-rose-500/10 pb-2">
+                  <ShieldAlert className="w-4 h-4 text-rose-450 glow-rose shrink-0" /> Security Audit Checklist (Defensive Measures)
                 </h5>
-                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3" id="audit-checklist-grid">
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-3.5" id="audit-checklist-grid">
                   {architectResult.securityAuditChecklist.map((auditItem, idx) => (
                     <li
                       key={idx}
-                      className="p-3 bg-red-950/10 border border-red-950/30 rounded-lg text-xs text-slate-300 leading-relaxed font-sans"
+                      className="p-3.5 bg-rose-950/10 border border-rose-950/20 rounded-xl text-xs text-slate-300 leading-relaxed font-sans shadow-3d-sm"
                     >
-                      <p className="font-semibold text-slate-200">Vector #{idx + 1}</p>
-                      <p className="text-slate-400 mt-0.5">{auditItem}</p>
+                      <p className="font-bold text-slate-200">Vector #{idx + 1}</p>
+                      <p className="text-slate-400 mt-1 font-medium">{auditItem}</p>
                     </li>
                   ))}
                 </ul>
