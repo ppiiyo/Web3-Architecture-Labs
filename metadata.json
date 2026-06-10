@@ -1,0 +1,6 @@
+{
+  "name": "Web3 Architecture Labs",
+  "description": "Interactive workspace to analyze major blockchain friction points (Solana, Ethereum, TON, Bitcoin) and simulate advanced dApp architectures and solutions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
